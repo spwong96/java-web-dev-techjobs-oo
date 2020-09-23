@@ -133,7 +133,7 @@ public class Job {
         }
 
         if (competencyString.toString().length() < 1){
-            competencyString = "\nCore Competency: " + unavailable;
+            competencyString = "\nCore Competency: " + unavailable + "\n";
         } else {
             competencyString = "\nCore Competency: " + this.coreCompetency + "\n";
         }

@@ -12,6 +12,7 @@ public class JobTest {
     private Job job3;
     private Job job4;
     private Job job6;
+    private Job job7;
 
     @Before
     public void setUp() {
@@ -20,6 +21,7 @@ public class JobTest {
         job3 = new Job();
         job4 = new Job();
         job6 = new Job("", new Employer("Walmart"),new Location(""),new PositionType("Cashier"),new CoreCompetency("idk"));
+        job7 = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
     }
 
     @Test
@@ -51,13 +53,18 @@ public class JobTest {
 
     @Test
     public void testEmptyData() {
-        System.out.println(job6.getLocation());
+//        System.out.println(job6.getLocation());
         assertEquals("\nID: " + job6.getId() +
                 "\nName: Data not available" +
                 "\nEmployer: " + job6.getEmployer() +
                 "\nLocation: Data not available" +
                 "\nPosition Type: " + job6.getPositionType() +
                 "\nCore Competency: " + job6.getCoreCompetency() + "\n", job6.toString());
+    }
+
+    @Test
+    public void testAllSetValuesNotAvailable() {
+        assertEquals(job7.toString(), "\nID: " + job7.getId() + "\nName: Data not available\nEmployer: Data not available\nLocation: Data not available\nPosition Type: Data not available\nCore Competency: Data not available\n");
     }
 
 }
