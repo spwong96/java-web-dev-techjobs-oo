@@ -1,6 +1,7 @@
 package org.launchcode.techjobs_oo;
 
 import java.util.Objects;
+import static java.util.Objects.isNull;
 
 public class Job {
 
@@ -92,5 +93,51 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+
+    @Override
+    public String toString() {
+        String unavailable = "Data not available";
+
+        String idString = "\nID: " + this.id;
+        String nameString = this.name;
+        Object employerString = this.employer;
+        Object locationString = this.location;
+        Object positionString = this.positionType;
+        Object competencyString = this.coreCompetency;
+
+
+        if (nameString.equals("")){
+            nameString = "\nName: " + unavailable;
+        } else {
+            nameString = "\nName: " + this.name;
+        }
+
+        if (employerString.toString().length() < 1){
+            employerString = "\nEmployer: " + unavailable;
+        } else {
+            employerString = "\nEmployer: " + this.employer;
+        }
+
+        if (locationString.toString().length() < 1){
+            locationString = "\nLocation: " + unavailable;
+        } else {
+            locationString = "\nLocation: " + this.location;
+        }
+
+        if (positionString.toString().length() < 1){
+            positionString = "\nPosition Type: " + unavailable;
+        } else {
+            positionString = "\nPosition Type: " + this.positionType;
+        }
+
+        if (competencyString.toString().length() < 1){
+            competencyString = "\nCore Competency: " + unavailable;
+        } else {
+            competencyString = "\nCore Competency: " + this.coreCompetency + "\n";
+        }
+
+        return idString + nameString + employerString + locationString + positionString + competencyString;
     }
 }
